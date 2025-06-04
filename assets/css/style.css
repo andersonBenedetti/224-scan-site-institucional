@@ -547,4 +547,29 @@ table {
       }
     }
   }
+
+  .section-contact {
+    padding: 100px 0;
+
+    .contact-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      h2 {
+        font-weight: 800;
+        font-size: 32px;
+        letter-spacing: -0.2px;
+        background: linear-gradient(90.25deg, #efa5ff 0.22%, #cc00f8 95.57%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        color: transparent;
+      }
+
+      p {
+        margin-bottom: 20px;
+      }
+    }
+  }
 }
