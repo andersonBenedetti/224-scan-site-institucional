@@ -572,4 +572,74 @@ table {
       }
     }
   }
+
+  .section-equipment {
+    .equipment-list {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+
+      .equipment-item {
+        position: relative;
+        border: 2px solid #12101a8a;
+        border-radius: 10px;
+        padding: 20px;
+        clip-path: polygon(
+          0 0,
+          calc(100% - 20px) 0,
+          100% 20px,
+          100% 100%,
+          0 100%
+        );
+        background-color: #0a090e;
+
+        &::before {
+          content: "";
+          position: absolute;
+          top: 0;
+          right: 0;
+          border-top: 20px solid #12101a8a;
+          border-left: 20px solid transparent;
+          border-top-right-radius: 10px;
+        }
+
+        .equipment-img {
+          position: relative;
+          max-width: 254px;
+          margin: 0 auto;
+
+          &::before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 120px;
+            height: 120px;
+            background: #cc00f880;
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            filter: blur(40px);
+            z-index: -1;
+          }
+
+          img {
+            width: 100%;
+            object-fit: contain;
+          }
+        }
+
+        h3 {
+          font-weight: 600;
+          font-size: 21px;
+          letter-spacing: -0.2px;
+          margin-top: 20px;
+        }
+
+        p {
+          line-height: 1.25;
+          letter-spacing: -0.2px;
+        }
+      }
+    }
+  }
 }
