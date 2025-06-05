@@ -642,4 +642,73 @@ table {
       }
     }
   }
+
+  .section-logos {
+    padding: 100px 0;
+
+    .logos-wrapper {
+      max-width: 1200px;
+      margin: 0 auto;
+      position: relative;
+      overflow: hidden;
+
+      &::before,
+      &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 80px;
+        pointer-events: none;
+        z-index: 1;
+      }
+
+      &::before {
+        left: 0;
+        background: linear-gradient(to right, #000000, transparent);
+      }
+
+      &::after {
+        right: 0;
+        background: linear-gradient(to left, #000000, transparent);
+      }
+    }
+
+    .logos-slider {
+      display: flex;
+      gap: 95px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      padding: 1rem;
+      cursor: grab;
+      user-select: none;
+
+      &.dragging {
+        cursor: grabbing;
+        scroll-behavior: auto;
+      }
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
+
+      .logos-item {
+        flex: 0 0 auto;
+        scroll-snap-align: start;
+        min-width: 90px;
+        max-width: 90px;
+
+        img {
+          display: block;
+          width: 100%;
+          height: auto;
+          object-fit: contain;
+          user-select: none;
+          pointer-events: none;
+          -webkit-user-drag: none;
+        }
+      }
+    }
+  }
 }
