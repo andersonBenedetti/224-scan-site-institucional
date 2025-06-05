@@ -93,6 +93,15 @@ table {
   }
 }
 
+/* TITULO SECTION */
+.title-section {
+  font-weight: 600;
+  font-size: 32px;
+  letter-spacing: -0.2px;
+  text-align: center;
+  margin: 0 auto;
+}
+
 /* GRADIENT LINE */
 .decorative-underline-gradient {
   position: relative;
@@ -140,10 +149,6 @@ table {
     padding: 50px 0;
 
     h2 {
-      font-weight: 600;
-      font-size: 32px;
-      letter-spacing: -0.2px;
-      text-align: center;
       margin: 0 auto 80px auto;
     }
 
@@ -899,6 +904,88 @@ table {
           user-select: none;
           pointer-events: none;
           -webkit-user-drag: none;
+        }
+      }
+    }
+  }
+
+  .section-regions {
+    position: relative;
+    padding: 100px 0 200px 0;
+
+    h2 {
+      margin: 0 auto -20px auto;
+    }
+
+    .regions-map {
+      width: 100%;
+
+      img {
+        width: 100%;
+        object-fit: contain;
+      }
+    }
+
+    .regions-footer {
+      position: absolute;
+      bottom: 135px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 80px;
+
+      .regions-list {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 20px;
+
+        .regions-item {
+          position: relative;
+          background: linear-gradient(
+            177.69deg,
+            rgba(0, 0, 0, 0.58) 2.01%,
+            rgba(29, 28, 36, 0.58) 98.14%
+          );
+          border-radius: 15px;
+          padding: 10px 15px;
+          display: flex;
+          align-items: center;
+          gap: 5px;
+
+          &::before {
+            content: "";
+            position: absolute;
+            z-index: -1;
+            inset: 0px;
+            padding: 1px;
+            border-radius: 15px;
+            background: linear-gradient(rgb(51, 51, 51) 0%, rgb(0, 0, 0) 100%);
+            mask: linear-gradient(
+                  rgb(255, 255, 255) 0px,
+                  rgb(255, 255, 255) 0px
+                )
+                content-box exclude,
+              linear-gradient(rgb(255, 255, 255) 0px, rgb(255, 255, 255) 0px);
+          }
+
+          .regions-icon {
+            width: 32px;
+
+            img {
+              width: 100%;
+              object-fit: contain;
+            }
+          }
+
+          h3 {
+            font-weight: 400;
+            font-size: 16px;
+            letter-spacing: -0.2px;
+          }
         }
       }
     }
