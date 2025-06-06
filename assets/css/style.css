@@ -63,13 +63,14 @@ table {
   font-weight: 600;
   font-size: 24px;
   line-height: 1;
-  letter-spacing: -1px;
+  letter-spacing: -0.1px;
   text-transform: uppercase;
   background: linear-gradient(90.25deg, #efa5ff 0.22%, #cc00f8 95.57%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
   color: transparent;
+  text-align: center;
 }
 
 /* INTRO */
@@ -98,6 +99,7 @@ table {
   font-weight: 600;
   font-size: 32px;
   letter-spacing: -0.2px;
+  line-height: 1;
   text-align: center;
   margin: 0 auto;
 }
@@ -106,13 +108,16 @@ table {
 .decorative-underline-gradient {
   position: relative;
   width: max-content;
+  z-index: 1;
 
   &::after {
     content: "";
     position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
+    z-index: -1;
+    bottom: -3px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
     height: 2px;
     background: linear-gradient(
       90deg,
@@ -1091,6 +1096,183 @@ table {
               object-fit: contain;
             }
           }
+        }
+      }
+    }
+  }
+
+  .section-integration {
+    background: linear-gradient(180deg, #1d1c24 27.85%, #000000 100%);
+    padding: 50px 0;
+
+    .integration-content {
+      .title-section {
+        max-width: 510px;
+        margin-top: 20px;
+      }
+
+      .integration-btns {
+        position: relative;
+        z-index: 1;
+        width: 100%;
+        height: 500px;
+        margin-top: 100px;
+
+        &::after {
+          content: "";
+          background-image: url(/assets/img/lines.svg);
+          background-repeat: no-repeat;
+          background-position: center;
+          position: absolute;
+          z-index: -1;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+        }
+
+        .icon-center {
+          position: absolute;
+          top: -23px;
+          left: 50%;
+          transform: translateX(-50%);
+          width: 128px;
+          height: 128px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          border-radius: 15px;
+
+          img {
+            width: 112px;
+            object-fit: contain;
+          }
+        }
+
+        .btn-item {
+          position: absolute;
+          width: max-content;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          border: 1px solid transparent;
+          border-radius: 5px;
+          background-image: linear-gradient(#1b1924, #1b1924),
+            linear-gradient(132.88deg, #1d1c24 9.57%, #423f4e 98.43%);
+          background-origin: border-box;
+          background-clip: padding-box, border-box;
+          padding: 10px;
+
+          img {
+            object-fit: contain;
+          }
+
+          &:nth-child(2) {
+            top: -20px;
+            left: 150px;
+
+            img {
+              width: 88px;
+            }
+          }
+
+          &:nth-child(3) {
+            top: 70px;
+            left: 80px;
+
+            img {
+              width: 82px;
+            }
+          }
+
+          &:nth-child(4) {
+            top: -20px;
+            right: 150px;
+
+            img {
+              width: 80px;
+            }
+          }
+
+          &:nth-child(5) {
+            top: 70px;
+            right: 80px;
+
+            img {
+              width: 56px;
+            }
+          }
+
+          &:nth-child(6) {
+            top: 140px;
+            left: 177px;
+
+            img {
+              width: 82px;
+            }
+          }
+
+          &:nth-child(7) {
+            top: 140px;
+            right: 210px;
+
+            img {
+              width: 36px;
+            }
+          }
+
+          &:nth-child(8) {
+            top: 120px;
+            left: 345px;
+
+            img {
+              width: 36px;
+            }
+          }
+
+          &:nth-child(9) {
+            top: 120px;
+            right: 345px;
+
+            img {
+              width: 60x;
+            }
+          }
+
+          &:nth-child(10) {
+            top: 250px;
+            left: 212px;
+
+            img {
+              width: 94px;
+            }
+          }
+
+          &:nth-child(11) {
+            top: 250px;
+            right: 212px;
+
+            img {
+              width: 94px;
+            }
+          }
+
+          &:nth-child(12) {
+            top: 260px;
+            right: 20px;
+
+            img {
+              width: 42px;
+            }
+          }
+        }
+
+        .btn-purple {
+          border: 1px solid transparent;
+          background-image: linear-gradient(#1b1924, #1b1924),
+            linear-gradient(132.88deg, #58026b 9.57%, #e87fff 98.43%);
+          background-origin: border-box;
+          background-clip: padding-box, border-box;
         }
       }
     }
