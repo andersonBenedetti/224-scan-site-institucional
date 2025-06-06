@@ -990,4 +990,109 @@ table {
       }
     }
   }
+
+  .section-graphic {
+    padding-bottom: 100px;
+
+    .graphic-content {
+      .subtitle {
+        text-align: center;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 100%;
+        margin-top: 20px;
+      }
+
+      .graphic-infos {
+        border: 1px solid transparent;
+        border-radius: 15px;
+        background-image: linear-gradient(#000000, #000000),
+          linear-gradient(106.99deg, #cc00f8 1.34%, #666666 68.38%);
+        background-origin: border-box;
+        background-clip: padding-box, border-box;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        width: 100%;
+        height: 565px;
+        margin-top: 50px;
+        position: relative;
+
+        &::before {
+          content: "";
+          background-image: url(/assets/img/mapa.webp);
+          background-repeat: no-repeat;
+          background-position: center;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          width: 100%;
+          height: 100%;
+        }
+
+        &::after {
+          content: "";
+          background-image: url(/assets/img/linha-mapa.svg);
+          background-repeat: no-repeat;
+          background-position: center;
+          position: absolute;
+          top: 37%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          width: 100%;
+          height: 100%;
+        }
+
+        .graphic-item {
+          position: relative;
+          z-index: 99;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          padding: 30px 20px 20px 20px;
+
+          &:nth-child(2) {
+            border-left: 1px solid #726874;
+          }
+
+          .graphic-btn {
+            border: 1px solid transparent;
+            border-radius: 15px;
+            background-image: linear-gradient(#000000, #000000),
+              linear-gradient(106.99deg, #cc00f8 1.34%, #666666 68.38%);
+            background-origin: border-box;
+            background-clip: padding-box, border-box;
+            width: 200px;
+            height: 60px;
+            cursor: pointer;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: 400;
+            font-size: 18px;
+            line-height: 100%;
+            letter-spacing: -0.2px;
+
+            &.red {
+              background-image: linear-gradient(#000000, #000000),
+                linear-gradient(106.99deg, #ff0000 1.34%, #666666 68.38%);
+            }
+          }
+
+          .text {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 15px;
+
+            img {
+              width: 32px;
+              object-fit: contain;
+            }
+          }
+        }
+      }
+    }
+  }
 }
