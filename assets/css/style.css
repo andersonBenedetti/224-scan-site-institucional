@@ -1390,4 +1390,87 @@ table {
       );
     }
   }
+
+  .section-manual {
+    padding: 100px 0;
+
+    .manual-content {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 15px;
+      margin-top: 50px;
+
+      .item {
+        background-color: #1d1c24;
+        border-radius: 15px;
+
+        .item-img {
+          width: 100%;
+          padding: 10px;
+          border-bottom: 1px solid #333333;
+
+          img {
+            height: 25px;
+            object-fit: contain;
+            margin: 0 auto;
+          }
+        }
+
+        a {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          gap: 3px;
+          padding: 20px 10px;
+          font-weight: 600;
+          font-size: 16px;
+          line-height: 1;
+          letter-spacing: -0.2px;
+        }
+      }
+    }
+
+    .manual-btns {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      margin-top: 50px;
+
+      a {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #1d1c24;
+        border-radius: 50px;
+        padding: 10px 20px;
+      }
+    }
+  }
+
+  .section-logos.media {
+    background-image: url(/assets/img/fundo-logos.webp);
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding-top: 200px;
+    margin-top: -160px;
+
+    .logos-wrapper {
+      margin-top: 50px;
+
+      &::after,
+      &::before {
+        display: none;
+      }
+
+      .logos-slider {
+        justify-content: center;
+        gap: 50px;
+
+        .logos-item {
+          min-width: 150px;
+          max-width: 150px;
+        }
+      }
+    }
+  }
 }
