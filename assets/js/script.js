@@ -47,46 +47,77 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-// CARROSSEL MODELOS
+// CARROSSEL
 document.addEventListener("DOMContentLoaded", () => {
-  const carousel = document.querySelector(".carousel-list");
-  const items = document.querySelectorAll(".carousel-item");
-  const dotsContainer = document.querySelector(".carousel-dots");
-  const prevBtn = document.querySelector(".carousel-arrow.prev");
-  const nextBtn = document.querySelector(".carousel-arrow.next");
+  document
+    .querySelectorAll(".carousel-visual, .carousel-models")
+    .forEach((carouselVisual) => {
+      const carousel = carouselVisual.querySelector(".carousel-list");
+      const items = carouselVisual.querySelectorAll(".carousel-item");
+      const prevBtn = carouselVisual.querySelector(".carousel-arrow.prev");
+      const nextBtn = carouselVisual.querySelector(".carousel-arrow.next");
+      const dotsContainer = carouselVisual.querySelector(".carousel-dots");
 
-  let currentIndex = 0;
+      let currentIndex = 0;
 
-  function updateCarousel() {
-    carousel.style.transform = `translateX(-${currentIndex * 100}%)`;
-    document.querySelectorAll(".carousel-dots button").forEach((dot, i) => {
-      dot.classList.toggle("active", i === currentIndex);
-    });
-  }
+      // Detecta o tipo de carrossel
+      const isHalfVisible = carouselVisual.classList.contains(
+        "carousel-visual--half"
+      );
+      const slideWidth = isHalfVisible ? 66.66 : 100;
 
-  function createDots() {
-    items.forEach((_, i) => {
-      const dot = document.createElement("button");
-      if (i === 0) dot.classList.add("active");
-      dot.addEventListener("click", () => {
-        currentIndex = i;
-        updateCarousel();
+      function updateCarousel() {
+        carousel.style.transform = `translateX(-${currentIndex * slideWidth}%)`;
+
+        if (isHalfVisible) {
+          prevBtn.disabled = currentIndex === 0;
+          nextBtn.disabled = currentIndex >= items.length - 1;
+        }
+
+        if (dotsContainer) {
+          dotsContainer.querySelectorAll("button").forEach((dot, i) => {
+            dot.classList.toggle("active", i === currentIndex);
+          });
+        }
+      }
+
+      function createDots() {
+        if (!dotsContainer) return;
+
+        items.forEach((_, i) => {
+          const dot = document.createElement("button");
+          if (i === 0) dot.classList.add("active");
+          dot.addEventListener("click", () => {
+            currentIndex = i;
+            updateCarousel();
+          });
+          dotsContainer.appendChild(dot);
+        });
+      }
+
+      prevBtn?.addEventListener("click", () => {
+        if (currentIndex > 0) {
+          currentIndex--;
+          updateCarousel();
+        } else if (!isHalfVisible) {
+          currentIndex = items.length - 1;
+          updateCarousel();
+        }
       });
-      dotsContainer.appendChild(dot);
+
+      nextBtn?.addEventListener("click", () => {
+        if (currentIndex < items.length - 1) {
+          currentIndex++;
+          updateCarousel();
+        } else if (!isHalfVisible) {
+          currentIndex = 0;
+          updateCarousel();
+        }
+      });
+
+      createDots();
+      updateCarousel();
     });
-  }
-
-  prevBtn.addEventListener("click", () => {
-    currentIndex = (currentIndex - 1 + items.length) % items.length;
-    updateCarousel();
-  });
-
-  nextBtn.addEventListener("click", () => {
-    currentIndex = (currentIndex + 1) % items.length;
-    updateCarousel();
-  });
-
-  createDots();
 });
 
 // TABS
