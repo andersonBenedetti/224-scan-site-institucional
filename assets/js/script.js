@@ -133,3 +133,33 @@ buttons.forEach((btn) => {
     document.getElementById(btn.dataset.tab).classList.add("active");
   });
 });
+
+const tabSlide = document.querySelector(".tab-slide");
+let isDown = false;
+let startX;
+let scrollLeft;
+
+tabSlide.addEventListener("mousedown", (e) => {
+  isDown = true;
+  tabSlide.classList.add("grabbing");
+  startX = e.pageX - tabSlide.offsetLeft;
+  scrollLeft = tabSlide.scrollLeft;
+});
+
+tabSlide.addEventListener("mouseleave", () => {
+  isDown = false;
+  tabSlide.classList.remove("grabbing");
+});
+
+tabSlide.addEventListener("mouseup", () => {
+  isDown = false;
+  tabSlide.classList.remove("grabbing");
+});
+
+tabSlide.addEventListener("mousemove", (e) => {
+  if (!isDown) return;
+  e.preventDefault();
+  const x = e.pageX - tabSlide.offsetLeft;
+  const walk = (x - startX) * 1.5; // scroll speed
+  tabSlide.scrollLeft = scrollLeft - walk;
+});
