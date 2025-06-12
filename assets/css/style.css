@@ -527,6 +527,101 @@ table {
   }
 }
 
+/* SECTION FATURAMENTO */
+.section-billing {
+  .billing-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 50px;
+
+    .billing-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 328px);
+      gap: 20px;
+
+      .billing-column {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+
+        &:first-child {
+          margin-top: -40px;
+        }
+
+        &:last-child {
+          margin-bottom: -40px;
+        }
+
+        .billing-img {
+          width: 100%;
+          height: 261px;
+          border-radius: 15px;
+          overflow: hidden;
+
+          img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+          }
+        }
+
+        .billing-text {
+          position: relative;
+          z-index: 0;
+          border-radius: 15px;
+          overflow: hidden;
+          backdrop-filter: blur(8px);
+          -webkit-backdrop-filter: blur(8px);
+          background: linear-gradient(
+            180deg,
+            rgba(0, 0, 0, 0.58) 0%,
+            rgba(29, 28, 36, 0.58) 100%
+          );
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          height: 140px;
+          padding: 0 20px;
+
+          &::before {
+            content: "";
+            position: absolute;
+            z-index: -1;
+            inset: 0;
+            padding: 1px;
+            border-radius: 15px;
+            background: linear-gradient(180deg, #333333 0%, #000000 100%);
+            -webkit-mask: linear-gradient(#fff 0 0) content-box,
+              linear-gradient(#fff 0 0);
+            -webkit-mask-composite: destination-out;
+            mask-composite: exclude;
+          }
+
+          p {
+            font-weight: 600;
+            font-size: 1em;
+            line-height: 1;
+            letter-spacing: -0.2px;
+            color: #ffffffb2;
+          }
+        }
+      }
+    }
+
+    .billing-infos {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+
+      .title-section {
+        margin: 0;
+        text-align: left;
+      }
+    }
+  }
+}
+
 /* TABS */
 .tabs {
   .tab-buttons {
