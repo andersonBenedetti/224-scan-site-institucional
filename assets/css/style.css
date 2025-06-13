@@ -1914,7 +1914,6 @@ table {
     height: 400px;
     padding: 50px 20px;
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
 
@@ -1959,6 +1958,129 @@ table {
         flex-direction: column;
         gap: 20px;
       }
+    }
+  }
+}
+
+/* PÁGINAS  */
+#pg-static {
+  .section-intro {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .intro-content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 150px;
+
+      .title-intro {
+        max-width: 700px;
+
+        &::after {
+          content: "";
+          width: 30%;
+        }
+      }
+
+      .intro-btns {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+        margin-top: 50px;
+
+        .btn.first {
+          background: transparent;
+        }
+      }
+    }
+  }
+
+  .section-top {
+    position: relative;
+    z-index: 9;
+    margin-top: -170px;
+    margin-bottom: 100px;
+
+    .top-img {
+      position: relative;
+      background: linear-gradient(#000, #000) padding-box,
+        linear-gradient(92.88deg, #cc00f8 -2.05%, #0d1457 153.72%) border-box;
+      border: 2px solid transparent;
+      background-clip: padding-box, border-box;
+      border-radius: 50px;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 25%;
+      pointer-events: none;
+      background: linear-gradient(
+        0deg,
+        rgba(0, 0, 0, 1) 25%,
+        rgba(0, 0, 0, 0) 100%
+      );
+    }
+  }
+
+  .section-split {
+    .split-content {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 520px));
+      justify-content: space-between;
+      align-items: center;
+      gap: 50px;
+
+      .split-img {
+        width: 100%;
+
+        img {
+          width: 100%;
+          object-fit: contain;
+          border-radius: 15px;
+        }
+      }
+
+      .split-infos {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+
+        .title-section {
+          margin: 0;
+          text-align: left;
+        }
+
+        p {
+          font-weight: 400;
+          font-size: 15px;
+          line-height: 25px;
+          letter-spacing: -0.5px;
+        }
+
+        .btn {
+          background: transparent;
+        }
+      }
+    }
+
+    &.mb {
+      margin-bottom: 100px;
     }
   }
 }
