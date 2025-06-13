@@ -2152,4 +2152,54 @@ table {
       }
     }
   }
+
+  .section-testimonials {
+    margin-bottom: 100px;
+
+    .testimonials-item {
+      display: flex;
+      flex: 0 0 100%;
+      flex-direction: column;
+      gap: 20px;
+      min-width: 100%;
+      padding: 0 100px;
+
+      .testimonials-user {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+
+        .testimonials-img {
+          width: 63px;
+          height: 63px;
+
+          img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+          }
+        }
+
+        h3 {
+          font-weight: 600;
+          font-size: 18px;
+          line-height: 1;
+          letter-spacing: -0.2px;
+        }
+      }
+
+      .testimonials-content {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+
+        p {
+          font-weight: 400;
+          font-size: 15px;
+          line-height: 25px;
+          letter-spacing: -0.5px;
+        }
+      }
+    }
+  }
 }

@@ -53,14 +53,15 @@ document.addEventListener("DOMContentLoaded", () => {
     .querySelectorAll(".carousel-visual, .carousel-models")
     .forEach((carouselVisual) => {
       const carousel = carouselVisual.querySelector(".carousel-list");
-      const items = carouselVisual.querySelectorAll(".carousel-item");
+      const items = carouselVisual.querySelectorAll(
+        ".carousel-item, .testimonials-item"
+      );
       const prevBtn = carouselVisual.querySelector(".carousel-arrow.prev");
       const nextBtn = carouselVisual.querySelector(".carousel-arrow.next");
       const dotsContainer = carouselVisual.querySelector(".carousel-dots");
 
       let currentIndex = 0;
 
-      // Detecta o tipo de carrossel
       const isHalfVisible = carouselVisual.classList.contains(
         "carousel-visual--half"
       );
@@ -98,21 +99,19 @@ document.addEventListener("DOMContentLoaded", () => {
       prevBtn?.addEventListener("click", () => {
         if (currentIndex > 0) {
           currentIndex--;
-          updateCarousel();
         } else if (!isHalfVisible) {
           currentIndex = items.length - 1;
-          updateCarousel();
         }
+        updateCarousel();
       });
 
       nextBtn?.addEventListener("click", () => {
         if (currentIndex < items.length - 1) {
           currentIndex++;
-          updateCarousel();
         } else if (!isHalfVisible) {
           currentIndex = 0;
-          updateCarousel();
         }
+        updateCarousel();
       });
 
       createDots();
