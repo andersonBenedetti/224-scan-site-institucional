@@ -2083,4 +2083,73 @@ table {
       margin-bottom: 100px;
     }
   }
+
+  .section-cards {
+    margin: 100px 0;
+
+    .cards-top {
+      .subtitle {
+        margin-bottom: 10px;
+      }
+    }
+
+    .cards-list {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+      margin-top: 50px;
+
+      .cards-item {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        position: relative;
+        z-index: 0;
+        border-radius: 15px;
+        overflow: hidden;
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        background: linear-gradient(
+          180deg,
+          rgba(0, 0, 0, 0.58) 0%,
+          rgba(29, 28, 36, 0.58) 100%
+        );
+        padding: 20px;
+
+        img {
+          width: 32px;
+          object-fit: contain;
+        }
+
+        h3 {
+          font-weight: 600;
+          font-size: 18px;
+          line-height: 100%;
+          letter-spacing: -0.2px;
+        }
+
+        p {
+          font-weight: 400;
+          font-size: 13px;
+          line-height: 21px;
+          letter-spacing: -0.5px;
+          color: #cacaca;
+        }
+
+        &::before {
+          content: "";
+          position: absolute;
+          z-index: -1;
+          inset: 0;
+          padding: 1px;
+          border-radius: 15px;
+          background: linear-gradient(180deg, #333333 0%, #000000 100%);
+          -webkit-mask: linear-gradient(#fff 0 0) content-box,
+            linear-gradient(#fff 0 0);
+          -webkit-mask-composite: destination-out;
+          mask-composite: exclude;
+        }
+      }
+    }
+  }
 }
