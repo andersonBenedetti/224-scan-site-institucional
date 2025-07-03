@@ -361,6 +361,16 @@ table {
     flex-direction: column;
     align-items: center;
 
+    @media (max-width: 1024px) {
+      text-align: center;
+
+      h2 {
+        font-size: 26px;
+        line-height: 1;
+        margin-bottom: 10px;
+      }
+    }
+
     h2 {
       font-weight: 800;
       font-size: 32px;
@@ -1392,6 +1402,12 @@ table {
       gap: 20px;
       height: 600px;
 
+      @media (max-width: 1024px) {
+        grid-template-columns: repeat(1, 1fr);
+        grid-template-rows: auto;
+        height: auto;
+      }
+
       .results-item {
         display: flex;
         position: relative;
@@ -1430,6 +1446,11 @@ table {
             padding-top: 5px;
           }
         }
+
+        @media (max-width: 1024px) {
+          grid-column: 1 !important;
+          grid-row: auto !important;
+        }
       }
 
       .item1 {
@@ -1439,6 +1460,10 @@ table {
         justify-content: space-between;
         padding: 50px 20px;
         background: linear-gradient(42.02deg, #030303 49.66%, #27574c 165.99%);
+
+        @media (max-width: 1024px) {
+          gap: 50px;
+        }
       }
 
       .item2 {
@@ -1456,6 +1481,14 @@ table {
         img {
           max-width: 190px;
           object-fit: contain;
+        }
+
+        @media (max-width: 1024px) {
+          padding: 50px 20px 50px 0;
+
+          h3 {
+            font-size: 15.54px;
+          }
         }
       }
 
@@ -1497,6 +1530,10 @@ table {
         h3 {
           text-align: center;
         }
+
+        @media (max-width: 1024px) {
+          padding: 50px 20px;
+        }
       }
 
       .item4 {
@@ -1506,6 +1543,10 @@ table {
         background-repeat: no-repeat;
         background-size: cover;
         padding: 50px 20px;
+
+        @media (max-width: 1024px) {
+          padding-bottom: 300px;
+        }
       }
 
       .item5 {
@@ -1519,21 +1560,40 @@ table {
           max-width: 60px;
           object-fit: contain;
         }
+
+        @media (max-width: 1024px) {
+          h3 {
+            font-size: 15.54px;
+          }
+        }
       }
     }
   }
 
   .section-contact {
     padding: 100px 0;
+
+    @media (max-width: 1024px) {
+      padding: 50px 0;
+    }
   }
 
   .section-equipment {
-    .equipment-list {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 20px;
+    .carousel-wrapper {
+      position: relative;
+      overflow: hidden;
+    }
 
-      .equipment-item {
+    .carousel-list {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      transition: transform 0.4s ease-in-out;
+      scroll-behavior: smooth;
+
+      .carousel-item {
+        flex: 0 0 23%;
+        box-sizing: border-box;
         position: relative;
         border: 2px solid #12101a8a;
         border-radius: 10px;
@@ -1593,6 +1653,18 @@ table {
           line-height: 1.25;
           letter-spacing: -0.2px;
         }
+
+        @media (max-width: 1024px) {
+          flex: 0 0 95%;
+        }
+      }
+    }
+
+    .carousel-dots {
+      display: none;
+
+      @media (max-width: 1024px) {
+        display: flex;
       }
     }
   }
