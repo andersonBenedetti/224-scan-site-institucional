@@ -120,8 +120,11 @@ table {
 /* GRADIENT LINE */
 .decorative-underline-gradient {
   position: relative;
-  width: max-content;
+  display: inline-block;
+  text-align: center;
   z-index: 1;
+  max-width: 100%;
+  word-break: break-word;
 
   &::after {
     content: "";
@@ -192,6 +195,10 @@ table {
 
     h2 {
       margin: 0 auto 80px auto;
+
+      @media (max-width: 768px) {
+        margin: 0 auto 20px auto;
+      }
     }
 
     .carousel-wrapper {
@@ -211,6 +218,10 @@ table {
       top: 50%;
       transform: translateY(-50%);
       z-index: 2;
+
+      @media (max-width: 768px) {
+        display: none;
+      }
 
       &:disabled {
         opacity: 0.3;
@@ -246,6 +257,11 @@ table {
         gap: 30px;
         min-width: 100%;
 
+        @media (max-width: 1200px) {
+          flex-direction: column;
+          padding: 10px;
+        }
+
         .carousel-img {
           max-width: 410px;
           width: 100%;
@@ -262,6 +278,11 @@ table {
           max-width: 300px;
           width: 100%;
           margin-right: 50px;
+
+          @media (max-width: 768px) {
+            max-width: 100%;
+            margin-right: 0;
+          }
 
           h3 {
             font-weight: 600;
@@ -396,7 +417,7 @@ table {
   .integration-content {
     .title-section {
       max-width: 510px;
-      margin-top: 20px;
+      margin: 20px auto 0 auto;
     }
 
     .integration-btns {
@@ -406,9 +427,14 @@ table {
       height: 500px;
       margin-top: 100px;
 
+      @media (max-width: 1024px) {
+        height: 250px;
+      }
+
       &::after {
         content: "";
         background-image: url(/assets/img/lines.svg);
+        background-size: cover;
         background-repeat: no-repeat;
         background-position: center;
         position: absolute;
@@ -417,6 +443,10 @@ table {
         left: 0;
         width: 100%;
         height: 100%;
+
+        @media (max-width: 1024px) {
+          height: 30%;
+        }
       }
 
       .icon-center {
@@ -434,6 +464,17 @@ table {
         img {
           width: 112px;
           object-fit: contain;
+        }
+
+        @media (max-width: 1024px) {
+          top: -5px;
+          width: 35px;
+          height: 35px;
+          border-radius: 5px;
+
+          img {
+            width: 30px;
+          }
         }
       }
 
@@ -462,6 +503,15 @@ table {
           img {
             width: 88px;
           }
+
+          @media (max-width: 1024px) {
+            top: -20px;
+            left: -10px;
+
+            img {
+              width: 55px;
+            }
+          }
         }
 
         &:nth-child(3) {
@@ -470,6 +520,15 @@ table {
 
           img {
             width: 82px;
+          }
+
+          @media (max-width: 1024px) {
+            top: 30px;
+            left: -15px;
+
+            img {
+              width: 55px;
+            }
           }
         }
 
@@ -480,6 +539,15 @@ table {
           img {
             width: 80px;
           }
+
+          @media (max-width: 1024px) {
+            top: -20px;
+            right: -10px;
+
+            img {
+              width: 54px;
+            }
+          }
         }
 
         &:nth-child(5) {
@@ -488,6 +556,15 @@ table {
 
           img {
             width: 56px;
+          }
+
+          @media (max-width: 1024px) {
+            top: 30px;
+            right: -15px;
+
+            img {
+              width: 40px;
+            }
           }
         }
 
@@ -498,6 +575,14 @@ table {
           img {
             width: 82px;
           }
+
+          @media (max-width: 1024px) {
+            left: -10px;
+
+            img {
+              width: 55px;
+            }
+          }
         }
 
         &:nth-child(7) {
@@ -506,6 +591,11 @@ table {
 
           img {
             width: 36px;
+          }
+
+          @media (max-width: 1024px) {
+            top: 75px;
+            right: -10px;
           }
         }
 
@@ -516,6 +606,15 @@ table {
           img {
             width: 36px;
           }
+
+          @media (max-width: 1024px) {
+            top: 20px;
+            left: 85px;
+
+            img {
+              width: 30px;
+            }
+          }
         }
 
         &:nth-child(9) {
@@ -524,6 +623,15 @@ table {
 
           img {
             width: 60x;
+          }
+
+          @media (max-width: 1024px) {
+            top: 25px;
+            right: 80px;
+
+            img {
+              width: 40px;
+            }
           }
         }
 
@@ -534,6 +642,15 @@ table {
           img {
             width: 94px;
           }
+
+          @media (max-width: 1024px) {
+            top: 80px;
+            left: 30px;
+
+            img {
+              width: 60px;
+            }
+          }
         }
 
         &:nth-child(11) {
@@ -543,6 +660,15 @@ table {
           img {
             width: 94px;
           }
+
+          @media (max-width: 1024px) {
+            top: 130px;
+            right: -10px;
+
+            img {
+              width: 55px;
+            }
+          }
         }
 
         &:nth-child(12) {
@@ -551,6 +677,15 @@ table {
 
           img {
             width: 42px;
+          }
+
+          @media (max-width: 1024px) {
+            top: 110px;
+            right: 38%;
+
+            img {
+              width: 32px;
+            }
           }
         }
       }
@@ -697,6 +832,14 @@ table {
     gap: 15px;
     margin-top: 50px;
 
+    @media (max-width: 1024px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (max-width: 768px) {
+      grid-template-columns: repeat(1, 1fr);
+    }
+
     .item {
       background-color: #1d1c24;
       border-radius: 15px;
@@ -741,12 +884,26 @@ table {
       border-radius: 50px;
       padding: 10px 20px;
     }
+
+    @media (max-width: 1024px) {
+      gap: 10px;
+      margin-top: 20px;
+
+      a {
+        font-size: 9px;
+        padding: 5px 10px;
+      }
+    }
   }
 }
 
 /* SECTION LOGOS MEDIA */
 .section-logos {
   padding: 100px 0;
+
+  @media (max-width: 1024px) {
+    padding: 50px 0;
+  }
 
   .logos-wrapper {
     max-width: 1200px;
@@ -798,8 +955,7 @@ table {
     .logos-item {
       flex: 0 0 auto;
       scroll-snap-align: start;
-      min-width: 90px;
-      max-width: 90px;
+      width: 90px;
 
       img {
         display: block;
@@ -823,6 +979,10 @@ table {
     .logos-wrapper {
       margin-top: 50px;
 
+      @media (max-width: 1024px) {
+        margin-top: 0;
+      }
+
       &::after,
       &::before {
         display: none;
@@ -836,7 +996,22 @@ table {
           min-width: 150px;
           max-width: 150px;
         }
+
+        @media (max-width: 1024px) {
+          flex-wrap: wrap;
+          gap: 20px;
+
+          .logos-item {
+            min-width: 120px;
+            max-width: 120px;
+          }
+        }
       }
+    }
+
+    @media (max-width: 1024px) {
+      padding-top: 50px;
+      margin-top: 0;
     }
   }
 }
@@ -878,6 +1053,10 @@ table {
         color: #ffffffcc;
         cursor: pointer;
         padding: 5px;
+
+        @media (max-width: 768px) {
+          font-size: 16px;
+        }
 
         &.active {
           background: linear-gradient(90.25deg, #efa5ff 0.22%, #cc00f8 95.57%);
@@ -1135,6 +1314,7 @@ table {
     padding: 50px 0;
 
     @media (max-width: 768px) {
+      flex-direction: column;
       gap: 50px;
       padding: 50px 0;
     }
@@ -1247,6 +1427,10 @@ table {
             width: 1px;
             height: 52px;
             background-color: #0c0c0c;
+
+            @media (max-width: 768px) {
+              display: none;
+            }
           }
         }
 
@@ -1258,6 +1442,11 @@ table {
           letter-spacing: -0.5px;
           opacity: 0.5;
         }
+      }
+
+      @media (max-width: 768px) {
+        flex-direction: column;
+        align-items: start;
       }
     }
   }
@@ -1673,8 +1862,27 @@ table {
     position: relative;
     padding: 100px 0 200px 0;
 
+    @media (max-width: 1024px) {
+      padding: 50px 0 100px 0;
+    }
+
     h2 {
       margin: 0 auto -20px auto;
+    }
+
+    .btn.mbl {
+      display: none;
+      margin: 50px auto;
+
+      @media (max-width: 1024px) {
+        display: flex;
+      }
+    }
+
+    .btn.desk {
+      @media (max-width: 1024px) {
+        display: none;
+      }
     }
 
     .regions-map {
@@ -1698,12 +1906,25 @@ table {
       justify-content: center;
       gap: 80px;
 
+      @media (max-width: 1024px) {
+        position: relative;
+        bottom: inherit;
+        left: inherit;
+        transform: inherit;
+      }
+
       .regions-list {
-        display: grid;
-        grid-template-columns: repeat(5, 1fr);
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
         gap: 20px;
 
+        @media (max-width: 1024px) {
+          gap: 10px;
+        }
+
         .regions-item {
+          flex: 1;
           position: relative;
           background: linear-gradient(
             177.69deg,
@@ -1715,6 +1936,10 @@ table {
           display: flex;
           align-items: center;
           gap: 5px;
+
+          @media (max-width: 1024px) {
+            justify-content: center;
+          }
 
           &::before {
             content: "";
@@ -1745,6 +1970,10 @@ table {
             font-weight: 400;
             font-size: 16px;
             letter-spacing: -0.2px;
+
+            @media (max-width: 1024px) {
+              font-size: 10px;
+            }
           }
         }
       }
@@ -1753,6 +1982,10 @@ table {
 
   .section-graphic {
     padding-bottom: 100px;
+
+    @media (max-width: 1024px) {
+      padding: 50px 0;
+    }
 
     .graphic-content {
       .subtitle {
@@ -1777,6 +2010,10 @@ table {
         margin-top: 50px;
         position: relative;
 
+        @media (max-width: 1024px) {
+          height: 450px;
+        }
+
         &::before {
           content: "";
           background-image: url(/assets/img/mapa.webp);
@@ -1788,19 +2025,33 @@ table {
           transform: translate(-50%, -50%);
           width: 100%;
           height: 100%;
+
+          @media (max-width: 1024px) {
+            top: -20px;
+            left: 0;
+            transform: inherit;
+            background-size: contain;
+            height: 375px;
+          }
         }
 
         &::after {
           content: "";
           background-image: url(/assets/img/linha-mapa.svg);
+          background-size: contain;
           background-repeat: no-repeat;
           background-position: center;
           position: absolute;
           top: 37%;
           left: 50%;
           transform: translate(-50%, -50%);
-          width: 100%;
+          width: 70%;
           height: 100%;
+
+          @media (max-width: 1024px) {
+            top: 35%;
+            width: 80%;
+          }
         }
 
         .graphic-item {
@@ -1838,17 +2089,36 @@ table {
               background-image: linear-gradient(#000000, #000000),
                 linear-gradient(106.99deg, #ff0000 1.34%, #666666 68.38%);
             }
+
+            @media (max-width: 1024px) {
+              width: 110px;
+              height: 30px;
+              border-radius: 7px;
+              font-size: 9.3px;
+            }
           }
 
-          .text {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-top: 15px;
+          > div {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            width: 180%;
+            z-index: 999;
 
-            img {
-              width: 32px;
-              object-fit: contain;
+            @media (max-width: 1024px) {
+              background-color: #000;
+            }
+
+            .text {
+              display: flex;
+              align-items: center;
+              gap: 10px;
+              margin-top: 15px;
+
+              img {
+                width: 32px;
+                object-fit: contain;
+              }
             }
           }
         }
@@ -1856,12 +2126,12 @@ table {
     }
   }
 
-  .section-tabs {
-    margin-top: -150px;
-  }
-
   .section-manual {
     padding: 100px 0;
+
+    @media (max-width: 1024px) {
+      padding: 50px 0;
+    }
   }
 }
 
