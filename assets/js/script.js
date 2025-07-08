@@ -69,7 +69,10 @@ function initCarouselVisual() {
       const isHalfVisible = carouselVisual.classList.contains(
         "carousel-visual--half"
       );
-      const slideWidth = isHalfVisible ? 66.66 : 100;
+
+      function getSlideWidth() {
+        return window.innerWidth <= 1024 ? 100 : isHalfVisible ? 66.66 : 100;
+      }
 
       function updateCarousel() {
         setPositionByIndex();
@@ -133,6 +136,7 @@ function initCarouselVisual() {
       }
 
       function setPositionByIndex() {
+        const slideWidth = getSlideWidth();
         currentTranslate =
           -currentIndex * (carousel.offsetWidth * (slideWidth / 100));
         prevTranslate = currentTranslate;
@@ -175,6 +179,10 @@ function initCarouselVisual() {
       carousel.addEventListener("mouseup", touchEnd);
       carousel.addEventListener("mouseleave", () => {
         if (isDragging) touchEnd();
+      });
+
+      window.addEventListener("resize", () => {
+        updateCarousel();
       });
 
       createDots();
