@@ -2542,6 +2542,10 @@ table {
     justify-content: center;
     align-items: center;
 
+    @media (max-width: 1024px) {
+      height: 300px;
+    }
+
     .intro-content {
       text-align: center;
       margin-top: 50px;
@@ -2599,6 +2603,10 @@ table {
     justify-content: center;
     align-items: center;
 
+    @media (max-width: 1024px) {
+      min-height: 400px;
+    }
+
     .intro-content {
       display: flex;
       flex-direction: column;
@@ -2606,6 +2614,10 @@ table {
       align-items: center;
       gap: 10px;
       margin-bottom: 150px;
+
+      @media (max-width: 1024px) {
+        margin-bottom: 0;
+      }
 
       .title-intro {
         max-width: 700px;
@@ -2623,6 +2635,11 @@ table {
         gap: 20px;
         margin-top: 50px;
 
+        @media (max-width: 1024px) {
+          flex-direction: column;
+          margin-top: 20px;
+        }
+
         .btn.first {
           background: transparent;
         }
@@ -2636,6 +2653,11 @@ table {
     margin-top: -170px;
     margin-bottom: 100px;
 
+    @media (max-width: 1024px) {
+      margin-top: 50px;
+      margin-bottom: 0;
+    }
+
     .top-img {
       position: relative;
       background: linear-gradient(#000, #000) padding-box,
@@ -2643,6 +2665,10 @@ table {
       border: 2px solid transparent;
       background-clip: padding-box, border-box;
       border-radius: 50px;
+
+      @media (max-width: 1024px) {
+        border-radius: 15px;
+      }
 
       img {
         width: 100%;
@@ -2664,16 +2690,29 @@ table {
         rgba(0, 0, 0, 1) 25%,
         rgba(0, 0, 0, 0) 100%
       );
+
+      @media (max-width: 1024px) {
+        display: none;
+      }
     }
   }
 
   .section-split {
+    @media (max-width: 1024px) {
+      margin-top: 50px;
+    }
+
     .split-content {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 520px));
       justify-content: space-between;
       align-items: center;
       gap: 50px;
+
+      @media (max-width: 1024px) {
+        grid-template-columns: repeat(1, minmax(0, 100%));
+        gap: 20px;
+      }
 
       .split-img {
         width: 100%;
@@ -2710,11 +2749,19 @@ table {
 
     &.mb {
       margin-bottom: 100px;
+
+      @media (max-width: 1024px) {
+        margin-bottom: 50px;
+      }
     }
   }
 
   .section-cards {
     margin: 100px 0;
+
+    @media (max-width: 1024px) {
+      margin: 50px 0;
+    }
 
     .cards-top {
       .subtitle {
@@ -2727,6 +2774,11 @@ table {
       grid-template-columns: repeat(3, 1fr);
       gap: 15px;
       margin-top: 50px;
+
+      @media (max-width: 1024px) {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+      }
 
       .cards-item {
         display: flex;
@@ -2785,6 +2837,16 @@ table {
   .section-testimonials {
     margin-bottom: 100px;
 
+    @media (max-width: 768px) {
+      margin-bottom: 20px;
+    }
+
+    .carousel-wrapper {
+      @media (max-width: 768px) {
+        padding-bottom: 50px;
+      }
+    }
+
     .testimonials-item {
       display: flex;
       flex: 0 0 100%;
@@ -2792,6 +2854,10 @@ table {
       gap: 20px;
       min-width: 100%;
       padding: 0 100px;
+
+      @media (max-width: 768px) {
+        padding: 0 20px;
+      }
 
       .testimonials-user {
         display: flex;
@@ -2828,6 +2894,18 @@ table {
           line-height: 25px;
           letter-spacing: -0.5px;
         }
+      }
+    }
+
+    .carousel-dots {
+      display: none;
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+
+      @media (max-width: 768px) {
+        display: flex;
       }
     }
   }
