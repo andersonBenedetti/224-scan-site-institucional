@@ -263,20 +263,41 @@ function initScrollColumns() {
 
   if (!col1 || !col2 || !col3) return;
 
-  const baseOffset1 = -200;
-  const baseOffset2 = 0;
-  const baseOffset3 = -250;
-
   function handleScroll() {
     const scrollY = window.scrollY;
+    const screenWidth = window.innerWidth;
 
-    col1.style.transform = `translateY(${baseOffset1 + scrollY * 0.2}px)`;
-    col2.style.transform = `translateY(${baseOffset2 - scrollY * 0.2}px)`;
-    col3.style.transform = `translateY(${baseOffset3 + scrollY * 0.1}px)`;
+    let offset1 = -200;
+    let offset2 = 0;
+    let offset3 = -250;
+    let speed1 = 0.2;
+    let speed2 = -0.2;
+    let speed3 = 0.1;
+
+    if (screenWidth <= 768) {
+      offset1 = -80;
+      offset2 = 0;
+      offset3 = -100;
+      speed1 = 0.1;
+      speed2 = -0.1;
+      speed3 = 0.05;
+    } else if (screenWidth <= 1024) {
+      offset1 = -150;
+      offset2 = 0;
+      offset3 = -180;
+      speed1 = 0.15;
+      speed2 = -0.15;
+      speed3 = 0.08;
+    }
+
+    col1.style.transform = `translateY(${offset1 + scrollY * speed1}px)`;
+    col2.style.transform = `translateY(${offset2 + scrollY * speed2}px)`;
+    col3.style.transform = `translateY(${offset3 + scrollY * speed3}px)`;
   }
 
   handleScroll();
   window.addEventListener("scroll", handleScroll);
+  window.addEventListener("resize", handleScroll);
 }
 
 function initHamburgerMenu() {
