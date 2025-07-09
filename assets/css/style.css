@@ -341,8 +341,8 @@ table {
           gap: 5px;
 
           .item-percentage {
-            width: 150px;
             position: relative;
+            margin-bottom: 10px;
 
             p {
               position: absolute;
