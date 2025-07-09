@@ -498,6 +498,36 @@ function initProgressOnView(percent) {
   observer.observe(path);
 }
 
+function initMultipleProgressOnView() {
+  const paths = document.querySelectorAll(".progress-path");
+
+  paths.forEach((path) => {
+    const totalLength = path.getTotalLength();
+    const percent = Math.min(
+      Math.max(parseFloat(path.dataset.percent) || 0, 0),
+      100
+    );
+
+    path.style.strokeDasharray = totalLength;
+    path.style.strokeDashoffset = totalLength;
+
+    const observer = new IntersectionObserver(
+      (entries, observer) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            path.style.transition = "stroke-dashoffset 2s ease";
+            path.style.strokeDashoffset = totalLength * (1 - percent / 100);
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.4 }
+    );
+
+    observer.observe(path);
+  });
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   initCarouselInfinite();
   initLogosSlider();
@@ -507,5 +537,6 @@ document.addEventListener("DOMContentLoaded", () => {
   initScrollColumns();
   initHamburgerMenu();
   initCardCarousel();
-  initProgressOnView(98);
+  initProgressOnView();
+  initMultipleProgressOnView();
 });
