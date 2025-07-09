@@ -472,6 +472,32 @@ function initCardCarousel() {
   });
 }
 
+function initProgressOnView(percent) {
+  const path = document.querySelector(".progress-path");
+  if (!path) return;
+
+  const totalLength = path.getTotalLength();
+  percent = Math.min(Math.max(percent, 0), 100);
+
+  path.style.strokeDasharray = totalLength;
+  path.style.strokeDashoffset = totalLength;
+
+  const observer = new IntersectionObserver(
+    (entries, observer) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          path.style.transition = "stroke-dashoffset 2s ease";
+          path.style.strokeDashoffset = totalLength * (1 - percent / 100);
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.5 }
+  );
+
+  observer.observe(path);
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   initCarouselInfinite();
   initLogosSlider();
@@ -481,4 +507,5 @@ document.addEventListener("DOMContentLoaded", () => {
   initScrollColumns();
   initHamburgerMenu();
   initCardCarousel();
+  initProgressOnView(98);
 });
