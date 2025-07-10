@@ -159,20 +159,75 @@ table {
 
 /* BUTTON */
 .btn {
-  display: flex;
+  position: relative;
+  display: inline-flex;
   align-items: center;
-  gap: 5px;
-  width: max-content;
-  border: 1px solid;
-  border-radius: 50px;
+  gap: 8px;
+  padding: 12px 36px;
+  font-size: 16px;
+  font-weight: 600;
+  color: white;
   background: linear-gradient(127.47deg, #cc00f8 32.18%, #efa5ff 83.84%);
-  box-shadow: 0px 0px 0px 3px #8361e03b;
-  padding: 10px 30px;
+  border-radius: 50px;
+  border: none;
   cursor: pointer;
   text-decoration: none;
-  font-weight: 600;
-  font-size: 16px;
-  line-height: 1;
+  overflow: hidden;
+  z-index: 0;
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px #cc00f877, 0 0 40px #efa5ff66;
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: -5px;
+    border-radius: inherit;
+    background: conic-gradient(#cc00f8, #efa5ff, #cc00f8);
+    z-index: -2;
+    animation: rotate-ring 2.5s linear infinite;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 2px;
+    border-radius: inherit;
+    background: linear-gradient(127.47deg, #cc00f8 32.18%, #efa5ff 83.84%);
+    z-index: -1;
+  }
+
+  span.shine {
+    position: absolute;
+    top: 0;
+    left: -75%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(120deg, transparent, #ffffff66, transparent);
+    transform: skewX(-20deg);
+  }
+
+  &:hover span.shine {
+    animation: shine-pass 1s ease forwards;
+  }
+}
+
+@keyframes rotate-ring {
+  to {
+    transform: rotate(1turn);
+  }
+}
+
+@keyframes shine-pass {
+  0% {
+    left: -75%;
+  }
+  100% {
+    left: 125%;
+  }
 }
 
 /* DOTS */
@@ -504,6 +559,14 @@ table {
         background-origin: border-box;
         background-clip: padding-box, border-box;
         padding: 10px;
+        transition: background-image 0.6s ease-in-out,
+          transform 0.3s ease-in-out;
+
+        &:hover {
+          background-image: linear-gradient(#1b1924, #1b1924),
+            linear-gradient(132.88deg, #58026b 9.57%, #e87fff 98.43%);
+          transform: scale(1.1);
+        }
 
         img {
           object-fit: contain;
@@ -2119,12 +2182,12 @@ table {
           top: 37%;
           left: 50%;
           transform: translate(-50%, -50%);
-          width: 70%;
+          width: 80%;
           height: 100%;
 
           @media (max-width: 1024px) {
-            top: 35%;
-            width: 80%;
+            top: 30%;
+            width: 100%;
           }
         }
 
