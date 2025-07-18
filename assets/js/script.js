@@ -528,6 +528,22 @@ function initMultipleProgressOnView() {
   });
 }
 
+function copyCode() {
+  const codeElement = document.getElementById("code-snippet");
+  if (!codeElement) return;
+
+  const codeText = codeElement.innerText;
+
+  navigator.clipboard
+    .writeText(codeText)
+    .then(() => {
+      alert("Código copiado!");
+    })
+    .catch((error) => {
+      console.error("Erro ao copiar:", error);
+    });
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   initCarouselInfinite();
   initLogosSlider();
@@ -539,4 +555,5 @@ document.addEventListener("DOMContentLoaded", () => {
   initCardCarousel();
   initProgressOnView();
   initMultipleProgressOnView();
+  copyCode();
 });
