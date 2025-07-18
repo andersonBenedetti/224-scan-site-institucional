@@ -984,6 +984,19 @@ table {
         font-size: 16px;
         line-height: 1;
         letter-spacing: -0.2px;
+        transition: color 0.3s ease;
+
+        svg path {
+          transition: fill 0.3s ease;
+        }
+
+        &:hover {
+          color: #cc00f8;
+
+          svg path {
+            fill: #cc00f8;
+          }
+        }
       }
     }
   }
@@ -995,12 +1008,36 @@ table {
     margin-top: 50px;
 
     a {
+      width: max-content;
       display: flex;
       justify-content: center;
       align-items: center;
       background-color: #1d1c24;
+      border: 1px solid transparent;
       border-radius: 50px;
       padding: 10px 20px;
+      color: #fff;
+      text-decoration: none;
+      transition: background-image 0.6s ease-in-out, transform 0.3s ease-in-out;
+
+      span {
+        transition: background 0.6s ease-in-out;
+      }
+
+      &:hover {
+        background-origin: border-box;
+        background-clip: padding-box, border-box;
+
+        background-image: linear-gradient(#1b1924, #1b1924),
+          linear-gradient(132.88deg, #58026b 9.57%, #e87fff 98.43%);
+
+        span {
+          background: linear-gradient(90.25deg, #efa5ff 0.22%, #cc00f8 95.57%);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          background-clip: text;
+        }
+      }
     }
 
     @media (max-width: 1024px) {
@@ -1263,7 +1300,8 @@ table {
           display: block;
         }
 
-        .tab-img {
+        .tab-img,
+        .code-container {
           width: 100%;
           border-radius: 50px;
           overflow: hidden;
@@ -1273,10 +1311,14 @@ table {
             height: 100%;
             object-fit: cover;
           }
+
+          code {
+            background-color: #2f2f2f;
+          }
         }
       }
 
-      .tab-copy {
+      .copy-btn {
         z-index: 99;
         position: absolute;
         bottom: 50px;
@@ -1294,6 +1336,8 @@ table {
         font-size: 13px;
         line-height: 1;
         letter-spacing: -0.2px;
+        color: #ffffff;
+        cursor: pointer;
       }
     }
   }
@@ -1347,6 +1391,12 @@ table {
         font-weight: 600;
         font-size: 16px;
         line-height: 1;
+        opacity: 0.7;
+        transition: opacity 0.3s ease;
+
+        &:hover {
+          opacity: 1;
+        }
       }
     }
 
