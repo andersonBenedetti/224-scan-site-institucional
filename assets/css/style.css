@@ -230,6 +230,17 @@ table {
   }
 }
 
+/* ANIMAÇÃO PULSANDO */
+@keyframes pulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.15);
+  }
+}
+
 /* DOTS */
 .carousel-dots {
   display: flex;
@@ -1530,10 +1541,15 @@ table {
         font-size: 16px;
         line-height: 1;
         letter-spacing: -0.5px;
+        transition: color 0.3s ease;
 
         &.load-more {
           font-weight: 600;
           text-decoration: underline;
+        }
+
+        &:hover {
+          color: #cc00f8;
         }
       }
     }
@@ -1546,10 +1562,16 @@ table {
         display: block;
         width: 35px;
         height: 35px;
+        opacity: 0.6;
+        transition: opacity 0.3s ease;
 
         img {
           width: 100%;
           object-fit: contain;
+        }
+
+        &:hover {
+          opacity: 1;
         }
       }
     }
@@ -1582,6 +1604,11 @@ table {
           line-height: 1;
           letter-spacing: -0.5px;
           opacity: 0.5;
+          transition: opacity 0.3s ease;
+
+          &:hover {
+            opacity: 1;
+          }
         }
       }
 
@@ -1628,6 +1655,14 @@ table {
           line-height: 1;
           letter-spacing: -0.5px;
           opacity: 0.5;
+
+          a {
+            transition: color 0.3s ease;
+
+            &:hover {
+              color: #cc00f8;
+            }
+          }
         }
       }
 
@@ -1758,6 +1793,16 @@ table {
 
       @media (max-width: 1024px) {
         flex: 0 0 95%;
+      }
+
+      .cross-icon {
+        display: inline-block;
+        transition: transform 0.3s ease-in-out;
+        transform-origin: center;
+      }
+
+      &:hover .cross-icon {
+        animation: pulse 1s infinite ease-in-out;
       }
     }
 
