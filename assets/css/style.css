@@ -230,7 +230,7 @@ table {
   }
 }
 
-/* ANIMAÇÃO PULSANDO */
+/* ANIMAÇÃO*/
 @keyframes pulse {
   0%,
   100% {
@@ -238,6 +238,15 @@ table {
   }
   50% {
     transform: scale(1.15);
+  }
+}
+
+@keyframes draw-line {
+  0% {
+    stroke-dashoffset: 200;
+  }
+  100% {
+    stroke-dashoffset: 0;
   }
 }
 
@@ -1803,6 +1812,15 @@ table {
 
       &:hover .cross-icon {
         animation: pulse 1s infinite ease-in-out;
+      }
+
+      .heartbeat-line {
+        stroke-dasharray: 200;
+        stroke-dashoffset: 200;
+      }
+
+      &:hover .heartbeat-line {
+        animation: draw-line 1.5s linear infinite;
       }
     }
 
