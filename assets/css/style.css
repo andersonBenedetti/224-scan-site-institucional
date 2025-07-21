@@ -159,6 +159,7 @@ table {
 
 /* BUTTON */
 .btn {
+  width: max-content;
   position: relative;
   display: inline-flex;
   align-items: center;
@@ -1745,30 +1746,15 @@ table {
     }
 
     .carousel-item {
+      position: relative;
       flex: 0 0 23%;
       box-sizing: border-box;
-      border: 1.5px solid #333;
-      border-radius: 10px;
-      padding: 40px 20px;
-      position: relative;
-
-      clip-path: polygon(
-        0 0,
-        calc(100% - 20px) 0,
-        100% 20px,
-        100% 100%,
-        0 100%
-      );
-
-      &::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        right: 0;
-        border-top: 20px solid #333;
-        border-left: 20px solid transparent;
-        border-top-right-radius: 10px;
-      }
+      padding: 20px;
+      background-image: url("/assets/icons/borda-card.svg");
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: center;
+      transition: background-image 0.3s ease;
 
       .card-icon {
         width: 48px;
@@ -1792,16 +1778,22 @@ table {
         display: block;
         width: max-content;
         padding: 5px 20px;
-        background-color: #252525;
-        border: 1px solid #666666;
+        box-sizing: border-box;
+        padding: 22px;
+        background-image: url("/assets/icons/borda-btn.svg");
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center;
         border-radius: 50px;
         font-weight: 600;
         font-size: 14px;
         margin-top: 20px;
+        transition: background-image 0.3s ease;
       }
 
-      @media (max-width: 1024px) {
+      @media (max-width: 768px) {
         flex: 0 0 95%;
+        padding: 40px 50px;
       }
 
       .cross-icon {
@@ -1810,17 +1802,51 @@ table {
         transform-origin: center;
       }
 
-      &:hover .cross-icon {
-        animation: pulse 1s infinite ease-in-out;
+      &:hover {
+        &:nth-child(1) {
+          background-image: url("/assets/icons/borda-card-governos.svg");
+
+          span {
+            background-image: url("/assets/icons/borda-btn-governos.svg");
+          }
+        }
+
+        &:nth-child(2) {
+          background-image: url("/assets/icons/borda-card-hospitais.svg");
+
+          span {
+            background-image: url("/assets/icons/borda-btn-hospitais.svg");
+          }
+        }
+
+        &:nth-child(3) {
+          background-image: url("/assets/icons/borda-card-jornada.svg");
+
+          span {
+            background-image: url("/assets/icons/borda-btn-jornada.svg");
+          }
+        }
+
+        &:nth-child(4) {
+          background-image: url("/assets/icons/borda-card-equipamentos.svg");
+
+          span {
+            background-image: url("/assets/icons/borda-btn-equipamentos.svg");
+          }
+        }
+
+        .cross-icon {
+          animation: pulse 1s infinite ease-in-out;
+        }
+
+        .heartbeat-line {
+          animation: draw-line 1.5s linear infinite;
+        }
       }
 
       .heartbeat-line {
         stroke-dasharray: 200;
         stroke-dashoffset: 200;
-      }
-
-      &:hover .heartbeat-line {
-        animation: draw-line 1.5s linear infinite;
       }
     }
 
